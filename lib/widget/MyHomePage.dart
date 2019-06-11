@@ -2,6 +2,7 @@ import 'package:bloc_test_1/bloc/AddItemBloc.dart';
 import 'package:bloc_test_1/bloc/CounterBloc.dart';
 import 'package:bloc_test_1/bloc/ThemeBloc.dart';
 import 'package:bloc_test_1/event/AddItemEvent.dart';
+import 'package:bloc_test_1/routes/Routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -31,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               BlocBuilder<CounterEvent, int>(
                 bloc: _counterBloc,
-                builder: (BuildContext context, int count) {
+                builder: (BuildContext mContext, int count) {
                   return Center(
                     child: Text(
                       "Counter: " + '$count',
@@ -42,11 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               BlocBuilder<AddItemEvent, List<String>>(
                 bloc: _addItemBloc,
-                builder: (BuildContext context, List<String> dataList) {
+                builder: (BuildContext mContext, List<String> dataList) {
                   return Expanded(
                       child: ListView.builder(
                           itemCount: dataList.length,
-                          itemBuilder: (context, index) {
+                          itemBuilder: (mContext, index) {
                             return ListTile(
                               onTap: () {
                                 _addItemBloc.dispatch(ItemClickedAtEvent(
@@ -92,9 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             _addItemBloc.dispatch(ItemDelEvent(data: ""));
           },
+          heroTag: "sasadwqesdasd",
           child: Icon(Icons.delete_forever),
           mini: true,
-          heroTag: "tagg1",
           backgroundColor: Colors.red,
           materialTapTargetSize: MaterialTapTargetSize.padded,
           foregroundColor: Colors.white,
@@ -103,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             _counterBloc.dispatch(CounterEvent.increment);
           },
-          heroTag: "tagg11",
+          heroTag: "sadasdaasdfasdsadsd",
           child: Icon(Icons.add),
           materialTapTargetSize: MaterialTapTargetSize.padded,
           mini: true,
@@ -114,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () {
             _counterBloc.dispatch(CounterEvent.decrement);
           },
-          heroTag: "tagg11",
+          heroTag: "dasd",
           child: Icon(Icons.remove),
           materialTapTargetSize: MaterialTapTargetSize.padded,
           mini: true,
@@ -122,10 +123,10 @@ class _MyHomePageState extends State<MyHomePage> {
           foregroundColor: Colors.white,
         ),
         FloatingActionButton(
+          heroTag: "sadasdasd",
           onPressed: () {
             _themeBloc.dispatch(ThemeEvent.toggle);
           },
-          heroTag: "tagg11",
           child: Icon(Icons.track_changes),
           materialTapTargetSize: MaterialTapTargetSize.padded,
           mini: true,
@@ -135,8 +136,9 @@ class _MyHomePageState extends State<MyHomePage> {
         FloatingActionButton(
           onPressed: () {
             // navigate to form widget
+            Navigator.pushNamed(context, navigateForm);
           },
-          heroTag: "tagg11",
+          heroTag: "zsdasdasdasd",
           child: Icon(Icons.list),
           materialTapTargetSize: MaterialTapTargetSize.padded,
           mini: true,

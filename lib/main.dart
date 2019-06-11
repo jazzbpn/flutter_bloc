@@ -3,9 +3,11 @@ import 'package:bloc_test_1/SimpleBlogDelegate.dart';
 import 'package:bloc_test_1/bloc/AddItemBloc.dart';
 import 'package:bloc_test_1/bloc/CounterBloc.dart';
 import 'package:bloc_test_1/bloc/ThemeBloc.dart';
+import 'package:bloc_test_1/routes/Routes.dart';
 import 'package:bloc_test_1/widget/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc_test_1/widget/MyFormPage.dart';
 
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
@@ -36,7 +38,11 @@ class _MyAppState extends State<MyApp> {
             return MaterialApp(
               title: 'Flutter Demo',
               theme: theme,
-              home: MyHomePage(title: 'Flutter Demo Home Page'),
+              initialRoute: '/',
+              routes: {
+                navigateRoot:(context) => MyHomePage(title: 'Flutter Demo Home Page'),
+                navigateForm:(context) => MyFormPage(title: 'adff'),
+              },
             );
           },
         ));
