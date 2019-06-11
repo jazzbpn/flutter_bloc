@@ -7,8 +7,9 @@ abstract class AddItemEvent2 extends Equatable {
 }
 
 class ItemClickedAtEvent extends AddItemEvent2 {
+  final updatedValue;
   final int position;
-  ItemClickedAtEvent({@required this.position}) : super([position]);
+  ItemClickedAtEvent({@required this.position, @required this.updatedValue}) : super([position,updatedValue ]);
 }
 
 class ItemAddEvent extends AddItemEvent2 {
@@ -17,6 +18,11 @@ class ItemAddEvent extends AddItemEvent2 {
 }
 
 class ItemDelEvent extends AddItemEvent2 {
+  final String data;
+  ItemDelEvent({@required this.data}) : super([data]);
+}
+
+class ItemDelEventAtPosition extends AddItemEvent2 {
   final int position;
-  ItemDelEvent({@required this.position}) : super([position]);
+  ItemDelEventAtPosition({@required this.position}) : super([position]);
 }

@@ -1,31 +1,27 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_test_1/AddItemEvent2.dart';
 
-enum AddItemEvent { addItem, deleteItem, updateItem, deleteItemAtPosition }
-
-class AddItemBloc extends Bloc<AddItemEvent, List<String>> {
+class AddItemBloc extends Bloc<AddItemEvent2, List<String>> {
   List<String> initialData = [];
 
   @override
   List<String> get initialState => getInitialData();
 
   @override
-  Stream<List<String>> mapEventToState(AddItemEvent event) async* {
-
-    switch (event) {
-      case AddItemEvent.addItem:
-        currentState.add("Added val ");
-        yield currentState.toList();
-        break;
-      case AddItemEvent.deleteItem:
-        currentState.removeAt(currentState.length - 1);
-        yield currentState.toList();
-        break;
-      case AddItemEvent.updateItem:
-        yield currentState.toList();
-        break;
-      case AddItemEvent.deleteItemAtPosition:
-        yield currentState.toList();
-        break;
+  Stream<List<String>> mapEventToState(AddItemEvent2 event) async* {
+    if (event is ItemAddEvent) {
+      currentState.add(event.item);
+      yield currentState.toList();
+    } else if (event is ItemDelEvent) {
+      currentState.removeAt(currentState.length - 1);
+      yield currentState.toList();
+    } else if (event is ItemDelEventAtPosition) {
+      currentState.removeAt(event.position);
+      yield currentState.toList();
+    } else if (event is ItemClickedAtEvent) {
+      currentState[event.position] =
+          event.updatedValue + currentState[event.position];
+      yield currentState.toList();
     }
   }
 

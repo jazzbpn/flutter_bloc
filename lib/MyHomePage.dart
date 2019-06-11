@@ -1,4 +1,5 @@
 import 'package:bloc_test_1/AddItemBloc.dart';
+import 'package:bloc_test_1/AddItemEvent2.dart';
 import 'package:bloc_test_1/CounterBloc.dart';
 import 'package:bloc_test_1/ThemeBloc.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-              BlocBuilder<AddItemEvent, List<String>>(
+              BlocBuilder<AddItemEvent2, List<String>>(
                 // BlocBuilder<AddItemEvent, String>(
                 bloc: _addItemBloc,
                 builder: (BuildContext context, List<String> dataList) {
@@ -53,8 +54,12 @@ class _MyHomePageState extends State<MyHomePage> {
                           itemCount: dataList.length,
                           itemBuilder: (context, index) {
                             return ListTile(
-                              onTap: () {},
-                              onLongPress: () {},
+                              onTap: () {
+                                _addItemBloc.dispatch(ItemClickedAtEvent(position: index, updatedValue: "Updated: "));
+                              },
+                              onLongPress: () {
+                                _addItemBloc.dispatch(ItemDelEventAtPosition(position: index));
+                              },
                               title: Text(
                                 dataList[index],
                                 style: Theme.of(context).textTheme.subtitle,
@@ -77,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
       children: <Widget>[
         FloatingActionButton(
           onPressed: () {
-            _addItemBloc.dispatch(AddItemEvent.addItem);
+            _addItemBloc.dispatch(ItemAddEvent(item: "Some data"));
           },
           child: Icon(Icons.add_comment),
           mini: true,
@@ -88,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         FloatingActionButton(
           onPressed: () {
-            _addItemBloc.dispatch(AddItemEvent.deleteItem);
+            _addItemBloc.dispatch(ItemDelEvent(data: ""));
           },
           child: Icon(Icons.delete_forever),
           mini: true,
