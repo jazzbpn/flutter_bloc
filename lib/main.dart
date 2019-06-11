@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_test_1/AddItemBloc.dart';
-import 'package:bloc_test_1/CounterBloc.dart';
-import 'package:bloc_test_1/MyHomePage.dart';
 import 'package:bloc_test_1/SimpleBlogDelegate.dart';
-import 'package:bloc_test_1/ThemeBloc.dart';
+import 'package:bloc_test_1/bloc/AddItemBloc.dart';
+import 'package:bloc_test_1/bloc/CounterBloc.dart';
+import 'package:bloc_test_1/bloc/ThemeBloc.dart';
+import 'package:bloc_test_1/widget/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,14 +1,14 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_test_1/AddItemEvent2.dart';
+import 'package:bloc_test_1/event/AddItemEvent.dart';
 
-class AddItemBloc extends Bloc<AddItemEvent2, List<String>> {
+class AddItemBloc extends Bloc<AddItemEvent, List<String>> {
   List<String> initialData = [];
 
   @override
   List<String> get initialState => getInitialData();
 
   @override
-  Stream<List<String>> mapEventToState(AddItemEvent2 event) async* {
+  Stream<List<String>> mapEventToState(AddItemEvent event) async* {
     if (event is ItemAddEvent) {
       currentState.add(event.item);
       yield currentState.toList();

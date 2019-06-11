@@ -1,7 +1,7 @@
-import 'package:bloc_test_1/AddItemBloc.dart';
-import 'package:bloc_test_1/AddItemEvent2.dart';
-import 'package:bloc_test_1/CounterBloc.dart';
-import 'package:bloc_test_1/ThemeBloc.dart';
+import 'package:bloc_test_1/bloc/AddItemBloc.dart';
+import 'package:bloc_test_1/bloc/CounterBloc.dart';
+import 'package:bloc_test_1/bloc/ThemeBloc.dart';
+import 'package:bloc_test_1/event/AddItemEvent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,25 +40,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 },
               ),
-              BlocBuilder<AddItemEvent2, List<String>>(
-                // BlocBuilder<AddItemEvent, String>(
+              BlocBuilder<AddItemEvent, List<String>>(
                 bloc: _addItemBloc,
                 builder: (BuildContext context, List<String> dataList) {
-                  // builder: (BuildContext context, String dataList) {
-                  debugPrint("Home-ListData: " +
-                      dataList.toString() +
-                      "  ---> Home-ListLength: " +
-                      dataList.length.toString());
                   return Expanded(
                       child: ListView.builder(
                           itemCount: dataList.length,
                           itemBuilder: (context, index) {
                             return ListTile(
                               onTap: () {
-                                _addItemBloc.dispatch(ItemClickedAtEvent(position: index, updatedValue: "Updated: "));
+                                _addItemBloc.dispatch(ItemClickedAtEvent(
+                                    position: index,
+                                    updatedValue: "Updated: "));
                               },
                               onLongPress: () {
-                                _addItemBloc.dispatch(ItemDelEventAtPosition(position: index));
+                                _addItemBloc.dispatch(
+                                    ItemDelEventAtPosition(position: index));
                               },
                               title: Text(
                                 dataList[index],
@@ -130,6 +127,17 @@ class _MyHomePageState extends State<MyHomePage> {
           },
           heroTag: "tagg11",
           child: Icon(Icons.track_changes),
+          materialTapTargetSize: MaterialTapTargetSize.padded,
+          mini: true,
+          backgroundColor: Colors.red,
+          foregroundColor: Colors.white,
+        ),
+        FloatingActionButton(
+          onPressed: () {
+            // navigate to form widget
+          },
+          heroTag: "tagg11",
+          child: Icon(Icons.list),
           materialTapTargetSize: MaterialTapTargetSize.padded,
           mini: true,
           backgroundColor: Colors.red,
