@@ -145,6 +145,18 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.red,
           foregroundColor: Colors.white,
         ),
+        FloatingActionButton(
+          onPressed: () {
+            // navigate to form widget
+            Navigator.pushNamed(context, navigateSnackbar);
+          },
+          heroTag: "zsdasdasdasadfwrtd",
+          child: Icon(Icons.list),
+          materialTapTargetSize: MaterialTapTargetSize.padded,
+          mini: true,
+          backgroundColor: Colors.red,
+          foregroundColor: Colors.white,
+        ),
       ],
     );
   }
