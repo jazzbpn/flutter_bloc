@@ -10,7 +10,7 @@ class DataBloc extends Bloc<DataEvent, DataState>{
   Stream<DataState> mapEventToState(DataEvent event) async*{
     if(event is FetchData){
       yield Loading();
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 3));
       yield Success();
     }
   }

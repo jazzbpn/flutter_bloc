@@ -6,6 +6,7 @@ import 'package:bloc_test_1/home/bloc/AddItemBloc.dart';
 import 'package:bloc_test_1/home/bloc/CounterBloc.dart';
 import 'package:bloc_test_1/home/bloc/ThemeBloc.dart';
 import 'package:bloc_test_1/home/widget/MyHomePage.dart';
+import 'package:bloc_test_1/navigation/NavWidget.dart';
 import 'package:bloc_test_1/snack_bar/DataBloc.dart';
 import 'package:bloc_test_1/snack_bar/ShowSnackBarWidget.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +48,7 @@ class _MyAppState extends State<MyApp> {
                   navigateRoot:(context) => MyHomePage(title: 'Flutter Demo Home Page'),
                   navigateForm:(context) => MyForm(title: 'adff'),
                   navigateSnackbar:(context) => ShowSnackbarWidget(),
+                  navigateNavigator:(context) => NavWidget(),
                 },
               );
             },

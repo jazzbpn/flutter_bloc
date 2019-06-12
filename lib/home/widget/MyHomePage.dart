@@ -73,91 +73,102 @@ class _MyHomePageState extends State<MyHomePage> {
             makeFab(_themeBloc, _addItemBloc, _counterBloc, context));
   }
 
-  Row makeFab(ThemeBloc _themeBloc, AddItemBloc _addItemBloc,
+  Container makeFab(ThemeBloc _themeBloc, AddItemBloc _addItemBloc,
       CounterBloc _counterBloc, BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: <Widget>[
-        FloatingActionButton(
-          onPressed: () {
-            _addItemBloc.dispatch(ItemAddEvent(item: "Some data"));
-          },
-          child: Icon(Icons.add_comment),
-          mini: true,
-          heroTag: "tagg1",
-          backgroundColor: Colors.red,
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          foregroundColor: Colors.white,
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            _addItemBloc.dispatch(ItemDelEvent(data: ""));
-          },
-          heroTag: "sasadwqesdasd",
-          child: Icon(Icons.delete_forever),
-          mini: true,
-          backgroundColor: Colors.red,
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          foregroundColor: Colors.white,
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            _counterBloc.dispatch(CounterEvent.increment);
-          },
-          heroTag: "sadasdaasdfasdsadsd",
-          child: Icon(Icons.add),
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          mini: true,
-          backgroundColor: Colors.red,
-          foregroundColor: Colors.white,
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            _counterBloc.dispatch(CounterEvent.decrement);
-          },
-          heroTag: "dasd",
-          child: Icon(Icons.remove),
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          mini: true,
-          backgroundColor: Colors.red,
-          foregroundColor: Colors.white,
-        ),
-        FloatingActionButton(
-          heroTag: "sadasdasd",
-          onPressed: () {
-            _themeBloc.dispatch(ThemeEvent.toggle);
-          },
-          child: Icon(Icons.track_changes),
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          mini: true,
-          backgroundColor: Colors.red,
-          foregroundColor: Colors.white,
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            // navigate to form widget
-            Navigator.pushNamed(context, navigateForm);
-          },
-          heroTag: "zsdasdasdasd",
-          child: Icon(Icons.list),
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          mini: true,
-          backgroundColor: Colors.red,
-          foregroundColor: Colors.white,
-        ),
-        FloatingActionButton(
-          onPressed: () {
-            // navigate to form widget
-            Navigator.pushNamed(context, navigateSnackbar);
-          },
-          heroTag: "zsdasdasdasadfwrtd",
-          child: Icon(Icons.list),
-          materialTapTargetSize: MaterialTapTargetSize.padded,
-          mini: true,
-          backgroundColor: Colors.red,
-          foregroundColor: Colors.white,
-        ),
-      ],
+    return Container(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            onPressed: () {
+              _addItemBloc.dispatch(ItemAddEvent(item: "Some data"));
+            },
+            child: Icon(Icons.add_comment),
+            mini: true,
+            heroTag: "tagg1",
+            backgroundColor: Colors.red,
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            foregroundColor: Colors.white,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              _addItemBloc.dispatch(ItemDelEvent(data: ""));
+            },
+            heroTag: "sasadwqesdasd",
+            child: Icon(Icons.delete_forever),
+            mini: true,
+            backgroundColor: Colors.red,
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            foregroundColor: Colors.white,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              _counterBloc.dispatch(CounterEvent.increment);
+            },
+            heroTag: "sadasdaasdfasdsadsd",
+            child: Icon(Icons.add),
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            mini: true,
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              _counterBloc.dispatch(CounterEvent.decrement);
+            },
+            heroTag: "dasd",
+            child: Icon(Icons.remove),
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            mini: true,
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
+          FloatingActionButton(
+            heroTag: "sadasdasd",
+            onPressed: () {
+              _themeBloc.dispatch(ThemeEvent.toggle);
+            },
+            child: Icon(Icons.track_changes),
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            mini: true,
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, navigateForm);
+            },
+            heroTag: "zsdasdasdasd",
+            child: Icon(Icons.list),
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            mini: true,
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, navigateSnackbar);
+            },
+            heroTag: "zsdasdasdasadfwrtd",
+            child: Icon(Icons.branding_watermark),
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            mini: true,
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.pushNamed(context, navigateNavigator);
+            },
+            child: Icon(Icons.navigate_next),
+            mini: true,
+            heroTag: "taasdasdasdgsfdgerthrthgg1",
+            backgroundColor: Colors.red,
+            materialTapTargetSize: MaterialTapTargetSize.padded,
+            foregroundColor: Colors.white,
+          ),
+        ],
+      ),
     );
   }
 }
