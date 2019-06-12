@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:bloc_test_1/Routes.dart';
 import 'package:bloc_test_1/SimpleBlogDelegate.dart';
-import 'package:bloc_test_1/form/widget/MyFormPage.dart';
+import 'package:bloc_test_1/form/widget/MyForm.dart';
 import 'package:bloc_test_1/home/bloc/AddItemBloc.dart';
 import 'package:bloc_test_1/home/bloc/CounterBloc.dart';
 import 'package:bloc_test_1/home/bloc/ThemeBloc.dart';
@@ -41,7 +41,7 @@ class _MyAppState extends State<MyApp> {
                 initialRoute: '/',
                 routes: {
                   navigateRoot:(context) => MyHomePage(title: 'Flutter Demo Home Page'),
-                  navigateForm:(context) => MyFormPage(title: 'adff'),
+                  navigateForm:(context) => MyForm(title: 'adff'),
                 },
               );
             },
