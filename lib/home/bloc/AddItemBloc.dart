@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:bloc_test_1/event/AddItemEvent.dart';
+import 'package:bloc_test_1/home/event/AddItemEvent.dart';
 
 class AddItemBloc extends Bloc<AddItemEvent, List<String>> {
   List<String> initialData = [];

@@ -1,8 +1,8 @@
-import 'package:bloc_test_1/bloc/AddItemBloc.dart';
-import 'package:bloc_test_1/bloc/CounterBloc.dart';
-import 'package:bloc_test_1/bloc/ThemeBloc.dart';
-import 'package:bloc_test_1/event/AddItemEvent.dart';
-import 'package:bloc_test_1/routes/Routes.dart';
+import 'package:bloc_test_1/Routes.dart';
+import 'package:bloc_test_1/home/bloc/AddItemBloc.dart';
+import 'package:bloc_test_1/home/bloc/CounterBloc.dart';
+import 'package:bloc_test_1/home/bloc/ThemeBloc.dart';
+import 'package:bloc_test_1/home/event/AddItemEvent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
